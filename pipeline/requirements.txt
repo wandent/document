@@ -1,0 +1,10 @@
+pdf2image==1.14.0
+autogen-agentchat==0.4.0.dev11
+autogen-ext[openai,azure]==0.4.0.dev11
+python-dotenv
+pandas
+fpdf
+openpyxl
+tiktoken
+# make sureto run: brew install poppler it's a dependency for pdf2image
+# poppler for windows :  https://github.com/oschwartz10612/poppler-windows/releases/tag/v24.08.0-0

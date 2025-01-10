@@ -1,0 +1,13 @@
+  # msg =  [
+    #         {
+    #             "role": "system", "content": """You are a helpful assistant. Your job is to classify the text into one of the following categories:
+    #             Generative AI, Data Science, Business, Technology, Sports, Science, Politics, Health, Entertainment, or Other. If the text does not fit any of the categories, classify as Other.
+    #             Provide the response as a json object with the category as the key, the confidence, and the explanation why the text was put on this category.
+    #               # Very Important Instruction: The following text is the one you should review and classify."""
+    #             , "name": "instructions"
+    #         },
+    #         {
+    #             "role": "user", "content": f"The text is very long, read the text entirely before reaching any conclusion. classify the following text: {text_content}", "name": "text"
+    #         },
+    #     ]    
+    # print(msg)

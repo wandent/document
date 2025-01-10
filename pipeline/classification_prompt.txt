@@ -1,0 +1,1057 @@
+
+1. Tipo de Documento: INFORMES INTEGRALES - ADJUNTO IV 
+   
+
+    Descripcion del Documento - Tipo: INFORMES INTEGRALES - ADJUNTO IV 
+
+    - Estructura del Documento: 
+
+        - El documento debe contener la palabra Adjunto IV 
+
+        - los "ADJUNTO IV" siempre tienen la palabra Adjunto IV en el documento. 
+
+    - Informe técnico obligatorio que exclusivamente entrega YPF a la Secretaría de Energía o Autoridad de Aplicación, en cumplimiento de la Resolución 319 (Adjunto IV). El documento debe contener información específica y detallada sobre tareas realizadas en pozos de exploración y explotación, incluyendo: 
+
+        - Datos básicos de la perforación (inicio, fin, profundidad alcanzada). 
+
+        - Fechas de actividades (perforación, terminación, abandono, inyección). 
+
+        - Detalles técnicos de cañería y cementación. 
+
+        - Información sobre abandono de pozos, incluyendo métodos de sellado y cementación. 
+
+    - Palabras claves: 
+
+        - OPERADOR,AREA (1),PROVINCIA,SIGLA,NOMBRE DEL POZO,CLASIFICACION (2),FECHA DE INICIO (dd/mm/aa),COMPAÑIA PERFORADORA,EQUIPO A UTILIZAR,CAPACIDAD PERFORANTE (mts.),COORDENADAS SUP N,COORDENADAS  SUP E,Z,COORDENADAS FONDO N,COORDENADAS FONDO E,KOP PREVISTO EN  ( mbbp),PROFUNDIDAD PROGRAMADA (mbbp),TIEMPO ESTIMADO DE PERFORACIÓN (días),TOPE DE HORIZONTES CALCULADOS,PROGRAMA DE CONTROL GEOLOGICO,CORONAS PROGRAMA DE ENSAYOS DE FORMACION,PERFILAJES A REALIZAR,TIPO DE INYECCION,PROGRAMA DE TREPANOS,PROGRAMA DE CAÑERIAS,OBJETIVOS Y OBSERVACIONES 
+
+    - Exclusión explícita: 
+
+        - Si el documemto no contiene la palabra ADJUNTO IV no debe ser clasificado en este tipo de documento y debe dar como resultado FALSE para este tipo de documento y continuar con los otros disponibles. 
+
+        - No deben clasificarse como INFORMES INTEGRALES - ADJUNTO IV documentos generales que no incluyan los detalles técnicos señalados arriba o que no se relacionen directamente con pozos de exploración y explotación en cumplimiento de la Resolución 319.       
+
+    - Criterio adicional para clasificación como PERFILES: 
+
+        - Si el documento pertenece a esta categoría pero no fue creado por YPF, retorna result como true y clasifíquese como PERFILES, independientemente de su contenido. 
+
+    - Criterios de exclusion 
+
+        - NO debe tener la siguiente estructura del documento, si se acerca a esta estructura NO debe ser clasificado en este tipo de documento. 
+
+          - Segmento Inicial (Máximo 5% del documento): 
+
+            - Contiene datos básicos e información técnica, como: 
+
+              - Nombre del pozo. 
+
+              - Compañía responsable del perfilaje. 
+
+              - Escala, fecha, servicios aplicados. 
+
+              - Tope y base del perfilaje (inicio y fin de los registros). 
+
+            - Este segmento es muy breve, ubicado al inicio (generalmente en la primera página). 
+
+            - Representa una proporción muy pequeña del contenido total, no más del 5% del documento. 
+
+          - Cuerpo Principal del Documento (Mínimo 95% del documento): 
+
+            - Compuesto casi exclusivamente por gráficos de registro continuo (logs) de pozos. 
+
+            - Características: 
+
+              - Gráficos organizados verticalmente que abarcan todo el ancho de las páginas. 
+
+              - Representan datos como resistividad, densidad, porosidad, velocidad, entre otros. 
+
+              - Las gráficas deben ser continuas y dominantes en todas las páginas. 
+
+            - No se incluyen bloques de texto explicativo, tablas ni cuadros de datos en el cuerpo principal. 
+
+            - Relación gráfica-texto estricta: el documento debe tener al menos un 95% de contenido gráfico. 
+
+     
+
+2. Tipo de Documento: Perfiles 
+
+    - Estructura del Documento: 
+
+      - Segmento Inicial (Máximo 5% del documento): 
+
+        - Contiene datos básicos e información técnica, como: 
+
+          - Nombre del pozo. 
+
+          - Compañía responsable del perfilaje. 
+
+          - Escala, fecha, servicios aplicados. 
+
+          - Tope y base del perfilaje (inicio y fin de los registros). 
+
+        - Este segmento es muy breve, ubicado al inicio (generalmente en la primera página). 
+
+        - Representa una proporción muy pequeña del contenido total, no más del 5% del documento. 
+
+      - Cuerpo Principal del Documento (Mínimo 95% del documento): 
+
+        - Compuesto casi exclusivamente por gráficos de registro continuo (logs) de pozos. 
+
+        - Características: 
+
+          - Gráficos organizados verticalmente que abarcan todo el ancho de las páginas. 
+
+          - Representan datos como resistividad, densidad, porosidad, velocidad, entre otros. 
+
+          - Las gráficas deben ser continuas y dominantes en todas las páginas. 
+
+        - No se incluyen bloques de texto explicativo, tablas ni cuadros de datos en el cuerpo principal. 
+
+        - Relación gráfica-texto estricta: el documento debe tener al menos un 95% de contenido gráfico. 
+
+ 
+
+    - Características Visuales Clave: 
+
+      - Proporción gráfica: Más del 95% del documento debe estar compuesto por gráficos continuos. 
+
+      - Segmentación visual homogénea: Los gráficos dominan todas las páginas y no se alternan con texto explicativo o tablas. 
+
+      - Áreas textuales limitadas: Solo están presentes al inicio, representando una proporción menor al 5-10% del contenido total. 
+
+     
+
+    - Criterio absoluto de Exclusión 
+
+        - Nunca debe contener La frase Movimiento de Materiales o Parte de Movimiento de Materiales, de contener esta frase debe ser excluido de este tipo de documento y retornar False. No importa que cumpla los otros criterior, si contiene esa frase debe ser excluido de este sub tipo. 
+
+    - Criterios de Exclusión: 
+
+       
+
+      - Nunca va a contener cualquiera de estas palabras: TERMINACIÓN, INTERVENCIÓN, PERFORACIÓN, REPARACIÓN, de contener estas palabras debe retornar False para este tipo de documento y evaluar los otros disponibles. Incluso si la proporción de text y graficos es la adecuada, si contiene alguna de estas palabras, debe retornar False para este tipo de documento y evaluar los otros disponibles. 
+
+      - Documentos con bloques de texto explicativo, análisis extensos o tablas de datos. 
+
+      - Documentos donde las gráficas no sean el contenido predominante (menos del 95%). 
+
+      - Informes con alternancia significativa entre gráficos y texto o párrafos descriptivos. 
+
+ 
+
+    - Ejemplos de Aplicaciones: 
+
+      - Documentos pertenecientes a registros geológicos o de perfilaje de pozos, como los producidos por empresas petroleras (e.g., YPF) u organizaciones similares. 
+
+      - Documentos de gráficos de registro continuo (logs): 
+
+        - Representan variables geológicas como resistividad, densidad, velocidad, porosidad, etc. 
+
+        - Son utilizados en actividades de exploración y análisis de pozos petroleros o geológicos. 
+
+ 
+
+3. Tipo de Documento: INFORMES INTEGRALES - INFORME FINAL DE POZO 
+
+    Descripción del Documento - Tipo: Informe Final de Pozo 
+
+    - Estructura del Documento: 
+
+      - Segmento Inicial: 
+
+        - Contiene información introductoria y general sobre el pozo, como: 
+
+          - Nombre y ubicación del pozo. 
+
+          - Compañía operadora y partes asociadas (si aplica). 
+
+          - Fecha de inicio y finalización de actividades relevantes. 
+
+          - Propósito del informe y resumen ejecutivo del estado del pozo. 
+
+        - Este segmento introduce el contenido y proporciona un contexto general. 
+
+      - Cuerpo Principal del Documento: 
+
+        - Incluye información detallada y específica sobre: 
+
+          - Procedimientos realizados en el pozo (desde perforación hasta su estado final). 
+
+          - El documento podría contener actividades de perforación, terminación y abandono. 
+
+          - Detalles técnicos sobre el estado original del pozo y cambios durante su vida operativa. 
+
+        - Este cuerpo representa la mayor parte del documento y debe estar organizado cronológicamente o por categorías técnicas. 
+
+    - Características Clave del Documento:   
+
+        - El documento debe ser creado por una empresa diferente a YPF, por ejemplo TOTAL AUSTRAL 
+
+        - "INFORME FINAL DE POZO" integra parcialmente múltiples etapas (perforación, terminación, bandono) 
+
+        - no deben contener Adjunto IV en el título y no deben ser creados por YPF. 
+
+        - Compilación Completa: El informe debe integrar todos los procedimientos realizados en el pozo, cubriendo total o parcialmente su ciclo de vida. 
+
+        - Diferenciación: 
+
+            - Este documento nunca debe ser clasificado como un 'Perfil', ya que su estructura y propósito son integrales, no limitados a gráficos continuos. 
+
+            - Los 'Perfiles' tienen un formato predominantemente gráfico, mientras que este documento combina gráficos, tablas y descripciones textuales. 
+
+      - Datos Técnicos y Narrativos: Combina datos técnicos detallados con explicaciones narrativas que los contextualizan. 
+
+    - Criterios de Exclusión absoluto: 
+
+        - El documento no debe centrarse unicamente en PERFORACIÓN, ya que al ser un informe final de pozo debe incluir multiples etapas del pozo. 
+
+        - el documento jamás debe contener en la primera página YPF 
+
+    - Criterios de Exclusión: 
+
+      - El documento no debe ser creado por YPF, esto se indica en la primera página del documento, por más que tengas las caracteristicas de un informe final de pozo, si indica que fue creado por YPF debe mostrar como resultado FALSE para este subbtipo y evaluar con otros disponibles. 
+
+      - Documentos que no incluyan un registro completo de los procedimientos realizados en el pozo. 
+
+      - Documentos que se limiten únicamente a datos parciales o gráficos continuos (deben clasificarse como 'Perfiles'). 
+
+      - Informes genéricos o no relacionados específicamente con el ciclo de vida completo del pozo. 
+
+      - Documentos que contentan como titulo ADJUNTO IV no deben ser clasificados en este sub tipo. 
+
+      - El documento NO debe ser creado por YPF, esto se indica siempre en la primera página del documento, si el documento es creado por YPF debe arrojar como resultado False para este subbtipo y evaluar con otros disponibles. 
+
+    - Ejemplos de Aplicaciones: 
+
+      - Informes Finales Geológicos que describen el estado final del pozo y actividades realizadas. 
+
+      - Documentos acordados entre YPF y partes asociadas sobre pozos específicos en áreas no operadas. 
+
+      - Informes que resumen todas las operaciones, desde la perforación inicial hasta el abandono o la terminación del pozo, esta informacion puede ser parcialmente ya que el pozo se puede encontrar a mitad de su ciclo de vida. 
+
+ 
+
+4. Tipo de Documento: TERMINACIÓN - INFORME FINAL TERMINACIÓN 
+
+ 
+
+    - Descripción General: 
+
+      - Documento que detalla las actividades y eventos específicos relacionados con la terminación de un pozo. 
+
+      - Incluye esquemas de actividades, partes diarios y análisis económico (Expost) con lecciones aprendidas si aplica. 
+
+      - Enfocado exclusivamente en la etapa de terminación del pozo. 
+
+ 
+
+    - Propósito Principal: 
+
+      - Documentar actividades y datos relacionados con la **terminación del pozo**. 
+
+      - Parte específica del Informe Final de Pozo, con enfoque exclusivo en la **terminación**. 
+
+ 
+
+    - Criterios Específicos de Clasificación: 
+
+      - **Foco en la Terminación:** 
+
+        - Debe centrarse en las **actividades de terminación del pozo**. 
+
+        - Prioridad a eventos y actividades directamente relacionadas con la terminación. 
+
+      - **Exclusión de Información General:** 
+
+        - No debe confundirse con el **Informe Final de Pozo**, que es más amplio. 
+
+        - Documento limitado únicamente a la etapa de **terminación**. 
+
+      - **Inclusión de Elementos Específicos:** 
+
+        - Actividades operacionales. 
+
+        - Esquemas de actividades. 
+
+        - Partes diarios relacionados con la terminación. 
+
+        - Análisis económico (Expost) enfocado en desvíos presupuestales (si aplica). 
+
+      - **Palabras Clave Relevantes:** 
+
+        - **Terminación** (palabra clave principal). 
+
+        - **Eventos de terminación**. 
+
+        - **Actividades de terminación**. 
+
+        - **Expost**. 
+
+        - **Lecciones aprendidas**. 
+
+ 
+
+    - Estructura del Documento: 
+
+      - Resumen ejecutivo de la terminación. 
+
+      - Descripción de eventos y actividades. 
+
+      - Esquemas y diagramas (si aplica). 
+
+      - Registro de partes diarios. 
+
+      - Análisis económico de desvíos (si aplica). 
+
+      - Conclusiones y lecciones aprendidas. 
+
+       
+
+    - Criterio de clasificación absoluto 
+
+        - Si el titulo del documento es TERMINACIÓN del POZO, debe ser calificado en este tipo de documento, sin importar los otros criterios, y retornar True. 
+
+        - Si el titulo del documento es TERMINACIÓN, debe ser calificado en este tipo de documento, sin importar los otros criterios, y retornar True. 
+
+        - Si en la primera página se lee EVENTO TERMINACION, entonces debe ser clasificado en este tipo de documento, sin importar los otros criterios y retornar True. 
+
+        - Si el documento contiene la frase Estado de Pozo a su terminiación o Terminación del Pozo, debe ser clasificado en este tipo de documento sin importar los otros criterios, y retornar True. 
+
+        - Si el documento tiene como titulo o como parte de la primera página TERMINACIÓN DEL POZO, o TERMINACIÓN POZO, sin importar los otros criterios, debe ser automaticamente clasificado en este tipo de documento, sin importar los otros criterios. Retornar True para este tipo de documento. 
+
+    - Diferenciación de Otros Documentos: 
+
+      - "TERMINACIÓN" se enfoca exclusivamente en actividades relacionadas con el cierre del pozo. 
+
+      - **No clasificar** como Informe Final de Pozo completo. 
+
+      - Priorizar contenido y terminología que se refiera directamente a la **terminación del pozo**. 
+
+     
+
+    - Criterios de exclusión 
+
+      - NO debe tener la siguiente estructura del documento, si se acerca a esta estructura NO debe ser clasificado en este tipo de documento. 
+
+          - Segmento Inicial (Máximo 5% del documento): 
+
+            - Contiene datos básicos e información técnica, como: 
+
+              - Nombre del pozo. 
+
+              - Compañía responsable del perfilaje. 
+
+              - Escala, fecha, servicios aplicados. 
+
+              - Tope y base del perfilaje (inicio y fin de los registros). 
+
+            - Este segmento es muy breve, ubicado al inicio (generalmente en la primera página). 
+
+            - Representa una proporción muy pequeña del contenido total, no más del 5% del documento. 
+
+          - Cuerpo Principal del Documento (Mínimo 95% del documento): 
+
+            - Compuesto casi exclusivamente por gráficos de registro continuo (logs) de pozos. 
+
+            - Características: 
+
+              - Gráficos organizados verticalmente que abarcan todo el ancho de las páginas. 
+
+              - Representan datos como resistividad, densidad, porosidad, velocidad, entre otros. 
+
+              - Las gráficas deben ser continuas y dominantes en todas las páginas. 
+
+            - No se incluyen bloques de texto explicativo, tablas ni cuadros de datos en el cuerpo principal. 
+
+            - Relación gráfica-texto estricta: el documento debe tener al menos un 95% de contenido gráfico. 
+
+ 
+
+5. Tipo de Documento: INTERVENCIÓN - INFORME FINAL INTERVENCIÓN 
+
+ 
+
+    - Descripción General: 
+
+        -Si el documento contiene en la primera página EVENTO INTERVENCION, debe ser automaticamente calificado como INTERVENCIÓN - INFORME FINAL INTERVENCIÓN, sin tener en cuenta los otros criterios y retornar True para este tipo de documento. 
+
+        - Documento que reporta todas las actividades realizadas durante la etapa de intervención de un pozo. 
+
+        - Incluye esquemas, partes diarios y análisis económico (Expost) con lecciones aprendidas si aplica. 
+
+        - Enfocado exclusivamente en el evento de intervención del pozo. 
+
+        - La intervención en un pozo es toda actividad que se realizar dentro del mismo, exluyendo reparación y perforación. 
+
+        - Una intervención en el pozo hace referencia a tareas exclusivamente sobre instalaciones del pozo, como reemplazo de bombas, cambio de valvulas, limpieza de cañerias, reemplazo de cañerias. 
+
+        - No confundir la intervencion con una reparación, la reparación es cuando trabajas sobre el reservorio, como Punzado, repunzado, estimulaciones, ensayos.     
+
+ 
+
+    - Propósito Principal: 
+
+      - Documentar actividades y datos relacionados con la **intervención del pozo**. 
+
+      - Parte específica del Informe Final de Pozo, con enfoque exclusivo en la **intervención**. 
+
+      - La "INTERVENCIÓN" se refiere exclusivamente a instalaciones del pozo, sin incluir el reservorio. 
+
+ 
+
+    - Criterios Específicos de Clasificación: 
+
+      - **Foco en la Intervención:** 
+
+        - Debe centrarse en las **actividades de intervención del pozo**. 
+
+        - Prioridad a eventos y actividades directamente relacionadas con la intervención. 
+
+      - **Exclusión de Información General:** 
+
+        - No debe confundirse con el **Informe Final de Pozo**, que es más amplio. 
+
+        - Documento limitado únicamente a la etapa de **intervención**. 
+
+      - **Inclusión de Elementos Específicos:** 
+
+        - Actividades operacionales relacionadas con la intervención. 
+
+        - Esquemas de actividades. 
+
+        - Partes diarios relacionados con la intervención. 
+
+        - Análisis económico (Expost) enfocado en desvíos presupuestales (si aplica). 
+
+      - **Palabras Clave Relevantes:** 
+
+        - **Intervención** (palabra clave principal). 
+
+        - **Eventos de intervención**. 
+
+        - **Actividades de intervención**. 
+
+        - **Expost**. 
+
+        - **Lecciones aprendidas**. 
+
+  
+
+    - Criterio de clasificación absoluto: estos criterios estan por encima de cualquier otro dentro del tipo de documento 
+
+        - Si el documento contiene en la primera página EVENTO INTERVENCION, debe ser automaticamente calificado como INTERVENCIÓN - INFORME FINAL INTERVENCIÓN, sin tener en cuenta los otros criterios y retornar True para este tipo de documento. 
+
+        - Si el documen contiene en la primera página la palabra **Intervención** debe retornar TRUE. 
+
+  
+
+    - Estructura del Documento: 
+
+      - Resumen ejecutivo de la intervención. 
+
+      - Descripción de eventos y actividades. 
+
+      - Esquemas y diagramas (si aplica). 
+
+      - Registro de partes diarios. 
+
+      - Análisis económico de desvíos (si aplica). 
+
+      - Conclusiones y lecciones aprendidas. 
+
+ 
+
+    - Diferenciación de Otros Documentos: 
+
+      - **No clasificar** como Informe Final de Pozo completo. 
+
+      - Priorizar contenido y terminología que se refiera unicamente a la **intervención del pozo**. 
+
+      - Si el documento presenta la palabra INTERVENCION en la primera página, debe ser catalogado en este tipo de documento. 
+
+    - Criterios de exclusión 
+
+         
+
+        - El documento no debe contenter como titulo o parte del titulo la palabra ADJUNTO IV 
+
+        - NO debe tener la siguiente estructura del documento, si se acerca a esta estructura NO debe ser clasificado en este tipo de documento. 
+
+          - Segmento Inicial (Máximo 5% del documento): 
+
+            - Contiene datos básicos e información técnica, como: 
+
+              - Nombre del pozo. 
+
+              - Compañía responsable del perfilaje. 
+
+              - Escala, fecha, servicios aplicados. 
+
+              - Tope y base del perfilaje (inicio y fin de los registros). 
+
+            - Este segmento es muy breve, ubicado al inicio (generalmente en la primera página). 
+
+            - Representa una proporción muy pequeña del contenido total, no más del 5% del documento. 
+
+          - Cuerpo Principal del Documento (Mínimo 95% del documento): 
+
+            - Compuesto casi exclusivamente por gráficos de registro continuo (logs) de pozos. 
+
+            - Características: 
+
+              - Gráficos organizados verticalmente que abarcan todo el ancho de las páginas. 
+
+              - Representan datos como resistividad, densidad, porosidad, velocidad, entre otros. 
+
+              - Las gráficas deben ser continuas y dominantes en todas las páginas. 
+
+            - No se incluyen bloques de texto explicativo, tablas ni cuadros de datos en el cuerpo principal. 
+
+            - Relación gráfica-texto estricta: el documento debe tener al menos un 95% de contenido gráfico. 
+
+ 
+
+6. Tipo de Documento: PERFORACIÓN - INFORME FINAL PERFORACIÓN 
+
+ 
+
+    - Descripción General: 
+
+      - Documento que incluye todos los datos y actividades realizadas durante la perforación de un pozo. 
+
+      - Contiene elementos como **Expost**, **IFP** (Informe Final de Pozo), y **Final Drilling Report**. 
+
+      - Incluye datos generales del pozo, partes diarios, días de perforación, informes de registro de trépanos, cañerías e inyección. 
+
+      - Este documento es usualmente extraído del sistema de reportes del **DFW**. 
+
+     
+
+    - Criterio absoluto de clasficación 1: el documento tiene que contener por lo menos 6 items de los que se lista a continuación, de no contener 6 items de la lista debe retornar FALSE para este subbtipo y evaluar con otros disponibles. 
+
+        - Partes diarios de perforación (Diarios, Semanales, Mensuales) 
+
+        - Presupuestos y costos detallados 
+
+        - Desviaciones (Desvíos) y reportes TR 
+
+        - Minutas y resúmenes de reuniones 
+
+        - Cotizaciones (Quotations) 
+
+        - Gráficos y curvas de avance tiempo-profundidad (Depth_Time_Curve) 
+
+        - Drilling Costs y datos relacionados 
+
+        - Curvas/datos de tasa de penetración (ROP - Rate of Penetration) 
+
+        - Informes de derrumbe 
+
+        - Síntesis de perforación 
+
+        - Resumen de actividades del pozo en etapa de perforación 
+
+         
+
+    - Propósito Principal: 
+
+      - Documentar todas las actividades realizadas durante la **etapa de perforación del pozo**. 
+
+      - Servir como un informe específico sobre perforación, siendo parte integral del Informe Final de Pozo. 
+
+ 
+
+    - Criterios Específicos de Clasificación 1: 
+
+      - **Foco en la Perforación:** 
+
+        - Contenido que refleja exclusivamente actividades, datos y reportes relacionados con la perforación. 
+
+        - Priorizar actividades específicas de perforación como registros de trépanos, cañerías e inyección. 
+
+      - **Exclusión de Información No Relacionada con Perforación:** 
+
+        - No incluir información no específica de la etapa de perforación. 
+
+      - **Inclusión de Elementos Específicos:** 
+
+        - **Expost** con análisis de desvíos económicos y lecciones aprendidas. 
+
+        - **Partes diarios** relacionados con días de perforación. 
+
+        - **Informes técnicos**: registros de trépanos, cañerías e inyección. 
+
+      - **Palabras Clave Relevantes:** 
+
+        - **Perforación** (palabra clave principal). 
+
+        - **Días de perforación**. 
+
+        - **Partes diarios**. 
+
+        - **Trépanos**. 
+
+        - **Cañerías**. 
+
+        - **Inyección**. 
+
+        - **Expost**. 
+
+        - **Final Drilling Report**. 
+
+ 
+
+    - Condición absoluta de clasificación 2: 
+
+        - Si el documento cumple con las consideraciones descritas en la seccion Criterio absoluto de clasficación 1: y NO ES CREADO POR YPF (te das cuenta que no es creado por YPF porque tiene el nombre de otra empresa en la primera página del documento) entonces: 
+
+            - Devolver como tipo de documento: INFORMES INTEGRALES - INFORME FINAL DE POZO. 
+
+            - Establecer el resultado como `True` para INFORMES INTEGRALES - INFORME FINAL DE POZO y False en todos los demás, como razón exponer que el documento encaja en PERFORACIÓN - INFORME FINAL PERFORACIÓN pero al ser creado por otra empresa que no es YPF se reasigna a INFORMES INTEGRALES - INFORME FINAL DE POZO. 
+
+            - retornar como tipo de documento: INFORMES INTEGRALES - INFORME FINAL DE POZO 
+
+        - Si el documento NO cunmple con las consideraciones descritas en la sección Criterio absoluto de clasficación 1 y NO ES CREADO POR YPF (te das cuenta que no es creado por YPF porque tiene el nombre de otra empresa en la primera página del documento) entonces: 
+
+            - Devolver False para este tipo de documento y evaluar los siguiente disponibles. 
+
+ 
+
+    - Estructura del Documento: 
+
+      - Resumen ejecutivo de actividades de perforación. 
+
+      - Detalle de días de perforación y partes diarios. 
+
+      - Informes técnicos: registros de trépanos, cañerías e inyección. 
+
+      - Análisis económico de desvíos (Expost) y lecciones aprendidas (si aplica). 
+
+      - Conclusiones específicas de la etapa de perforación. 
+
+ 
+
+    - Diferenciación de Otros Documentos: 
+
+        - No clasificar como otros informes generales si contiene un enfoque exclusivo en **perforación del pozo**. 
+
+        - En caso de documentos creados por terceros y que cumplan con la sección Criterio absoluto de clasficación 1, reasignar la clasificación como **INFORMES INTEGRALES - INFORME FINAL DE POZO**.  
+
+     
+
+    - Criterios de Exclusion 
+
+        - El documento no debe tener como titulo la palabra TERMINACIÓN, de contener el titulo o como parte del título la palabra TERMINACIÓN, debe ser excluido de este tipo de documento y retornar False. 
+
+        - Se excluyen de este tipo de documento todos los documentos que no cumplan con la sección Criterio absoluto de clasficación 1 sin importar el creador del documento. 
+
+        - Si el documento NO contiene información exclusiva de perforación, entonces debe devolver False para este tipo de documento y evaluar con los otros disponibles. 
+
+        - Si el documento no cunmple con los criterios absolutos de clasificación 1 para este tipo de documento, donde indica que debe contener por lo menos 6 items de los listados en esa sección, debe devolver FALSE para este tipo y evaluar otros disponibles 
+
+        - Si el documento contiene la palabra ADJUNTO IV, queda excluido de este subtipo y debe dar un resultado de FALSE para este tipo y evaluar con otros disponibles. 
+
+        - Los documentos de "PERFORACIÓN" excluyen explícitamente ciclos completos del pozo 
+
+        - NO debe tener la siguiente estructura del documento, si se acerca a esta estructura NO debe ser clasificado en este tipo de documento. 
+
+            - Segmento Inicial (Máximo 5% del documento): 
+
+                - Contiene datos básicos e información técnica, como: 
+
+                    - Nombre del pozo. 
+
+                    - Compañía responsable del perfilaje. 
+
+                    - Escala, fecha, servicios aplicados. 
+
+                    - Tope y base del perfilaje (inicio y fin de los registros). 
+
+                - Este segmento es muy breve, ubicado al inicio (generalmente en la primera página). 
+
+                - Representa una proporción muy pequeña del contenido total, no más del 5% del documento. 
+
+            - Cuerpo Principal del Documento (Mínimo 95% del documento): 
+
+                - Compuesto casi exclusivamente por gráficos de registro continuo (logs) de pozos. 
+
+                - Características: 
+
+                    - Gráficos organizados verticalmente que abarcan todo el ancho de las páginas. 
+
+                    - Representan datos como resistividad, densidad, porosidad, velocidad, entre otros. 
+
+                    - Las gráficas deben ser continuas y dominantes en todas las páginas. 
+
+                - No se incluyen bloques de texto explicativo, tablas ni cuadros de datos en el cuerpo principal. 
+
+                - Relación gráfica-texto estricta: el documento debe tener al menos un 95% de contenido gráfico. 
+
+ 
+
+7. Tipo de Documento: PERFORACIÓN - INFORME PERFORACIÓN 
+
+- Estructura del Documento: 
+
+ 
+
+    - Partes diarios de perforación (Diarios, Semanales, Mensuales) 
+
+    - Presupuestos y costos detallados 
+
+    - Desviaciones (Desvíos) y reportes TR 
+
+    - Minutas y resúmenes de reuniones 
+
+    - Cotizaciones (Quotations) 
+
+    - Gráficos y curvas de avance tiempo-profundidad (Depth_Time_Curve) 
+
+    - Drilling Costs y datos relacionados 
+
+    - Curvas/datos de tasa de penetración (ROP - Rate of Penetration) 
+
+    - Informes de derrumbe 
+
+    - Síntesis de perforación 
+
+    - Resumen de actividades del pozo en etapa de perforación 
+
+- Caracteristicas clave: 
+
+    - El documento contiene uno de los items listados en la sección de Estructura del documento, no debe contener todos ya que este es un informe parcial, no final. 
+
+- Palabras claves: 
+
+    - Perforación, Costos, Desviación, Tiempo-Profundidad, ROP, Informe derrumbe, TR, Síntesis, Gráficos, Minutas, Avance, Reuniones, Quotations, Actividades del Pozo 
+
+ 
+
+- Exclusión explícita: 
+
+    - No se debe clasificar en este tipo de documento cuando el contenido habla sobre reparación del pozo, o cuando tiene el Event Code como REP. Si se da este caso el resultado deberia ser False para este tipo de documento y evaluar con los otros que estén disponibles. 
+
+    - Documentos que no estén relacionados con actividades específicas de perforación. Documentos sobre fases distintas a la perforación, como terminación o producción. 
+
+ 
+
+- Criterio adicional para clasificación como PERFILES: 
+
+    - Documentos que incluyan datos de costos, gráficos de avance o tasa de penetración, y síntesis de perforación en conjunto con actividades específicas del pozo en etapa de perforación. 
+
+ 
+
+- Criterios de exclusion: 
+
+    - Si el documento contiene Event Code REP o Event Code TER, entonces no debe ser clasificado en este tipo de documento, debe dar como resultado false para este tipo y evaluar con otros disponibles 
+
+    - Documentos de mantenimiento, producción, o terminación del pozo. Documentos sin relación a datos técnicos de perforación o sin referencia a gráficos/curvas tiempo-profundidad y ROP. 
+
+     
+
+8. Tipo de Documento: PLANIFICACIÓN - COORDENADAS DEFINITIVAS 
+
+    - Descripción General: 
+
+      - Documento que detalla las **coordenadas definitivas** asociadas a un proyecto o actividad específica. 
+
+      - Puede incluir referencias al **informe final de coordenadas definitivas**. 
+
+ 
+
+    - Propósito Principal: 
+
+      - Documentar y validar las **coordenadas definitivas** que serán utilizadas en la planificación o ejecución de un proyecto. 
+
+ 
+
+    - Criterios Específicos de Clasificación: 
+
+      - **Foco en Coordenadas Definitivas:** 
+
+        - El documento debe centrarse exclusivamente en proporcionar las coordenadas finales validadas. 
+
+      - **Inclusión de Elementos Específicos:** 
+
+        - Informe de coordenadas definitivas. 
+
+        - Datos relacionados con la ubicación precisa del proyecto. 
+
+      - **Palabras Clave Relevantes:** 
+
+        - **Coordenadas definitivas**. 
+
+        - **Informe final de coordenadas definitivas**. 
+
+ 
+
+    - Estructura del Documento: 
+
+      - Introducción con el contexto del proyecto. 
+
+      - Presentación de las coordenadas definitivas. 
+
+      - Validación o respaldo técnico (si aplica). 
+
+      - Conclusiones sobre la planificación basada en las coordenadas. 
+
+ 
+
+    - Diferenciación de Otros Documentos: 
+
+      - No clasificar como otros informes de planificación si el enfoque principal son las **coordenadas definitivas**. 
+
+       
+
+    - Criterios de Exclusion         
+
+        - Si el documento contiene la palabra ADJUNTO IV, queda excluido de este subtipo y debe dar un resultado de FALSE para este tipo y evaluar con otros disponibles. 
+
+ 
+
+9. Tipo de Documento: REPARACIÓN - INFORME FINAL REPARACIÓN 
+
+ 
+
+    - Descripción General: 
+
+      - Documento que detalla todas las actividades realizadas durante la **etapa de reparación de un pozo**. 
+
+      - Incluye esquemas posteriores a la reparación, equipo utilizado, partes diarios y otros elementos relevantes. 
+
+      - Contiene información requerida en el **VCDE de pozos** y, en caso de desvíos económicos mayores a lo establecido en el proyecto, incluye un **Expost** con lecciones aprendidas. 
+
+      - La actividad de **Estimulación de Formaciones** vinculada a esta etapa debe presentarse como un documento aparte (fractura o matricial) con su respectivo **Programa**, **Reporte de Servicio** e **Informe Final**. 
+
+ 
+
+    - Propósito Principal: 
+
+      - Documentar de manera integral las actividades realizadas durante la **reparación del pozo**. 
+
+      - Proporcionar información clave sobre la etapa **Producing**, que es el estado en el cual se encuentra el pozo tras la reparación. 
+
+      - La "REPARACIÓN" implica actividades que afectan el reservorio, como estimulaciones o ensayos. 
+
+ 
+
+    - Criterios Específicos de Clasificación: 
+
+      - **Foco en la Reparación:** 
+
+        - Contenido centrado en actividades realizadas específicamente durante la etapa de reparación. 
+
+        - Incluir detalles técnicos, operacionales y económicos relacionados con esta fase. 
+
+      - **Inclusión de Elementos Específicos:** 
+
+        - Esquemas posteriores a la reparación. 
+
+        - Equipo utilizado durante la reparación. 
+
+        - Partes diarios detallados. 
+
+        - Información económica relacionada (incluyendo Expost, si aplica). 
+
+      - **Estimulación de Formaciones:** 
+
+        - Presentada en documentos separados con su **Programa**, **Reporte de Servicio** e **Informe Final**. 
+
+      - **Palabras Clave Relevantes:** 
+
+        - **Reparación**. 
+
+        - **Producing** (etapa del pozo). 
+
+        - **Estimulación** (fractura o matricial). 
+
+        - **Expost**. 
+
+ 
+
+    - Estructura del Documento: 
+
+      - Resumen ejecutivo de la reparación del pozo. 
+
+      - Detalle de actividades y esquemas posteriores a la reparación. 
+
+      - Información técnica: equipo utilizado, partes diarios y elementos operacionales. 
+
+      - Análisis económico (si aplica, incluir Expost y lecciones aprendidas). 
+
+      - Estado del pozo en la etapa **Producing**. 
+
+      - Mención de documentos relacionados a **Estimulación de Formaciones** (si aplica). 
+
+      - El documento debe contener por lo menos 3 informer parciales de reparación. 
+
+       
+
+    - Diferenciación de Otros Documentos: 
+
+        - En la primera página contiene el evento Reparación 
+
+        - No clasificar como informe general si el contenido está enfocado exclusivamente en la **reparación del pozo**. 
+
+        - Documentos relacionados con **Estimulación de Formaciones** deben clasificarse aparte como programas, reportes de servicio o informes finales específicos. 
+
+        - "REPARACIÓN" se limita a operaciones sobre el reservorio o mejoras técnicas en la estructura del pozo. 
+
+       
+
+    - Criterio de exclusión 
+
+      - el documento no debe tener como titulo TERMINACIÓN, de contener el titulo o como parte del título TERMINACIÓN, debe ser excluido de este tipo de documento y retornar False. 
+
+      - El documento no debe contener la palabra *INTERVENCIÓN** solamente, si existe la palabra INTERVENCIÓN debe existir también la palabra **REPARACIÓN**, de contener la palabra INTERVENCIÓN sin la palabra REPARACIÓN debe retornar FALSE para este subbtipo y evaluar con otros disponibles. De contener la palabra REPARACIÓN e INTERVENCIÓN, entonces debe retornar TRUE 
+
+      - Si el documento contiene un solo informe de reparación, entonces no pertenece a este tipo de documento ya que el Informe final de reparación es más completo. 
+
+      - NO debe tener la siguiente estructura del documento, si se acerca a esta estructura NO debe ser clasificado en este tipo de documento. 
+
+          - Segmento Inicial (Máximo 5% del documento): 
+
+            - Contiene datos básicos e información técnica, como: 
+
+              - Nombre del pozo. 
+
+              - Compañía responsable del perfilaje. 
+
+              - Escala, fecha, servicios aplicados. 
+
+              - Tope y base del perfilaje (inicio y fin de los registros). 
+
+            - Este segmento es muy breve, ubicado al inicio (generalmente en la primera página). 
+
+            - Representa una proporción muy pequeña del contenido total, no más del 5% del documento. 
+
+          - Cuerpo Principal del Documento (Mínimo 95% del documento): 
+
+            - Compuesto casi exclusivamente por gráficos de registro continuo (logs) de pozos. 
+
+            - Características: 
+
+              - Gráficos organizados verticalmente que abarcan todo el ancho de las páginas. 
+
+              - Representan datos como resistividad, densidad, porosidad, velocidad, entre otros. 
+
+              - Las gráficas deben ser continuas y dominantes en todas las páginas. 
+
+            - No se incluyen bloques de texto explicativo, tablas ni cuadros de datos en el cuerpo principal. 
+
+            - Relación gráfica-texto estricta: el documento debe tener al menos un 95% de contenido gráfico. 
+
+ 
+
+10. Tipo de Documento: REPARACIÓN - INFORME REPARACIÓN 
+
+ 
+
+    - Descripción General: 
+
+      - Documento relacionado con la **reparación de un pozo**, pero que no incluye propuestas, programas, partes diarios ni análisis detallados. 
+
+      - Contiene el **esquema de reparación** y menciona si se realizaron actividades como fracturas, aplicación de ácidos, entre otras. 
+
+      - Incluye la palabra clave **Producing**, que identifica la etapa en la cual se encuentra el pozo tras la reparación. 
+
+ 
+
+    - Propósito Principal: 
+
+      - Documentar aspectos generales relacionados con la **reparación del pozo** sin incluir propuestas o análisis específicos. 
+
+      - Enfocarse en el esquema general y las actividades realizadas durante la reparación. 
+
+ 
+
+    - Criterios Específicos de Clasificación: 
+
+      - **Foco en la Reparación General:** 
+
+        - Documentos que reflejen información sobre la reparación, pero sin detalles como propuestas, programas o análisis económicos. 
+
+        - Incluir información sobre fracturas, ácidos u otras técnicas aplicadas durante la reparación. 
+
+      - **Exclusión de Documentos Específicos:** 
+
+        - No debe contener propuestas o programas detallados. 
+
+        - No debe incluir partes diarios ni análisis exhaustivos. 
+
+      - **Palabras Clave Relevantes:** 
+
+        - **Reparación**. 
+
+        - **Producing** (etapa del pozo). 
+
+        - **Fracturas**. 
+
+        - **Ácidos**. 
+
+ 
+
+    - Estructura del Documento: 
+
+      - Introducción general sobre la reparación del pozo. 
+
+      - Esquema de reparación realizado. 
+
+      - Descripción de actividades relevantes como fracturas, aplicación de ácidos, etc. 
+
+      - Breve referencia al estado del pozo en la etapa **Producing**. 
+
+      - Este tipo de documento tiene solamente 1 reparación, solamente un informe de reparación. 
+
+    - Criterio de clasificación absoluta: 
+
+        - si el documento contiene Event Code REP, entonces debe ser clasificado en este tipo de documento y devolver True como resultado. 
+
+    - Diferenciación de Otros Documentos: 
+
+        - El documento contiene actividades de reparación del pozo, contiene codigo como REP o evento como REP, tomar en cuenta el contenido del documento que hable sobre actividades de reparación del pozo. 
+
+        - No clasificar como informe detallado o programático (p. ej., propuestas, programas o análisis). 
+
+        - Enfocarse en el contenido relacionado con el **esquema de reparación** y actividades específicas realizadas durante la reparación. 
+
+    - Criterios de exclusión 
+
+      - El documento no debe contener como titulo ni como parte del titulo la palabra ADJUNTO IV, en ninguna de sus hojas o como parte del documento. De contener la palabra ADJUNTO IV no debe ser clasificado en este tipo de documento. 
+
+      - Si el documento contiene más de 1 informe de reparación no debe ser clasificado en este tipo de documento. 
+
+      - NO debe tener la siguiente estructura del documento, si se acerca a esta estructura NO debe ser clasificado en este tipo de documento. 
+
+          - Segmento Inicial (Máximo 5% del documento): 
+
+            - Contiene datos básicos e información técnica, como: 
+
+              - Nombre del pozo. 
+
+              - Compañía responsable del perfilaje. 
+
+              - Escala, fecha, servicios aplicados. 
+
+              - Tope y base del perfilaje (inicio y fin de los registros). 
+
+            - Este segmento es muy breve, ubicado al inicio (generalmente en la primera página). 
+
+            - Representa una proporción muy pequeña del contenido total, no más del 5% del documento. 
+
+          - Cuerpo Principal del Documento (Mínimo 95% del documento): 
+
+            - Compuesto casi exclusivamente por gráficos de registro continuo (logs) de pozos. 
+
+            - Características: 
+
+              - Gráficos organizados verticalmente que abarcan todo el ancho de las páginas.
+
+              - Representan datos como resistividad, densidad, porosidad, velocidad, entre otros. 
+
+              - Las gráficas deben ser continuas y dominantes en todas las páginas. 
+
+            - No se incluyen bloques de texto explicativo, tablas ni cuadros de datos en el cuerpo principal. 
+
+            - Relación gráfica-texto estricta: el documento debe tener al menos un 95% de contenido gráfico. 
+
+ 
