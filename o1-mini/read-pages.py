@@ -93,32 +93,6 @@ def summarize_content(history: dict) -> str:
     return json.dumps(message)
 
 # Create a function that will reason with the content of the document and generate a response that means what is the type of geological data you can interpret from the content
-def reason_content(history: dict) -> str:
-    # Create a list of messages to send to the OpenAI API
-    message = []
-    message =[
-        {
-            "role": "user",
-            "content": "You are a geologist, working for an oil company your job is to analyze and summarize data. Do not fabricate facts or change the tone. Respond with the same language of the document page you read. You dont need to create any new ending message for every response like: If you need more assistance feel free to ask. Use the context of the conversation history make a context and reason with the document page image provided in the end.",
-        }
-     ]
-    for h in history:
-        message.append(h)
-    message.append({
-            "role": "user",
-            "content": "You should summarize the content from all the responses provided by the assistant, and try to classify the documents read from the previous history in terms of geological data. Analyzing the nature of the document it can be.",
-        }
-    )
-    # Add the history to the message if the history is provided
-    # print(json.dumps(message))  
-    response = client.chat.completions.create(
-          model=os.getenv("AZURE_OPENAI_DEPLOYMENT2"),
-          messages=message,
-     )
-    # Send the messages to the OpenAI API
-    # Return the response from the OpenAI API
-    #return response.choices[0].message.content
-    return json.dumps(message)
 
 
 # create the main function
@@ -158,13 +132,9 @@ def main():
             # write the content of the result to the output file
         with open(output_file, "w") as f:
             f.write(summarize_content(history))
-            print(f"Text content saved to {output_file}")
-            
+            print(f"Text content saved to {output_file}")            
             # print(f"Summarized Content:{summarize_content(history)}")
-            with open(output_file, "w") as f:
-                f.write(reason_content(history))
-                print(f"Reasoning Conclusions saved on {output_file}")
-                print(f"Reasoned Content:{reason_content(history)}")
+           
            
 
 # call the main function
