@@ -89,8 +89,8 @@ def summarize_content(history: dict) -> str:
      )
     # Send the messages to the OpenAI API
     # Return the response from the OpenAI API
-    #return response.choices[0].message.content
-    return json.dumps(message)
+    return response.choices[0].message.content
+    #return json.dumps(message)
 
 # Create a function that will reason with the content of the document and generate a response that means what is the type of geological data you can interpret from the content
 

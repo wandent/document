@@ -5,5 +5,6 @@ fpdf
 openpyxl
 tiktoken
 openai
+pydantic
 # make sureto run: brew install poppler it's a dependency for pdf2image
 # poppler for windows :  https://github.com/oschwartz10612/poppler-windows/releases/tag/v24.08.0-0

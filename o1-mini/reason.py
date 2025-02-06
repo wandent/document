@@ -9,7 +9,7 @@ import tiktoken as TikToken
 load_dotenv()
 
 client = AzureOpenAI( azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-         azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT"),
+         azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT2"),
          api_key=os.getenv("AZURE_OPENAI_KEY"), 
          api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
          
@@ -140,7 +140,8 @@ Key Characteristics Across Documents:
 	· Accessibility: Documents are often shared across multidisciplinary teams, requiring them to be understandable to both technical and non-technical stakeholders.
 
             
-    I want to to read the document presented on the history and provide a response that classifies the information based on the geological data types described above. The response should identify the type of geological data that can be interpreted from the content.""",
+    I want to to read the document presented on the history and provide a response that classifies the information based on the geological data types described above. The response should identify the type of geological data that can be interpreted from the content.
+    Provide a json response with the classification of the geological data type and the content of the document and the confidence in your prediction based on the instructions provided.""",
         }
     )
     # Add the history to the message if the history is provided
@@ -160,7 +161,7 @@ Key Characteristics Across Documents:
 
 def main():
     text_location = "./text"
-    document_location = "./document"
+    #document_location = "./document"
 
    # iterate with every file on the text_location
     for txt_file in [f for f in os.listdir(text_location) if f.endswith(".txt")]:
