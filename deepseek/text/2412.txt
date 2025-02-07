@@ -1,0 +1,23 @@
+The Predictive Justified Perspective (PJP) model for epistemic planning is designed to enhance the accuracy of agents' beliefs and knowledge in multi-agent environments where agents share a single goal but operate individually. The PJP model dynamically predicts outcomes, addressing the limitations of static assumptions in traditional models.
+
+1. **Introduction to Epistemic Planning (EP):** EP involves planning under uncertain knowledge and beliefs, requiring agents to achieve goals collaboratively. Traditional static models often fail to capture real-world complexities, necessitating improved predictive approaches.
+
+2. **Predictive Justified Perspective (PJP) Model:**
+   - **Definition and Formalization:** The PJP model extends existing approaches by integrating dynamic predictions that accommodate both static assumptions and goal dynamics.
+   - **Predictive Retrieval Function:** A function defined to retrieve values of variables at given times based on observed data, allowing agents to update their beliefs accurately.
+   - **JP Signature:** Defines how agents update their beliefs using predictions, ensuring consistent and correct beliefs over time.
+
+3. **Implementation and Results:**
+   - **PDDL Encoding:** The PJP model is integrated into PDDL (Planning Domain Definition Language) to ensure effective retrieval and validation of predictions in multi-agent scenarios.
+   - **Experimental Results:** Experiments demonstrated that PJP outperformed traditional static models, providing higher prediction accuracy and planning performance.
+
+4. **Challenges and Related Work:**
+   - **Dynamic Knowledge Updating:** Traditional models lack the capability to dynamically update knowledge, leading to incorrect beliefs and suboptimal plans.
+   - **Complex Interactions:** EP problems involve intricate interactions between agents, which the PJP model addresses through predictive accuracy.
+
+5. **Extensions and Applications:**
+   - **Grapevine Benchmark:** A complex scenario where agents must indirectly share information, divided into sub-tasks to validate the PJP model's effectiveness.
+   - **Big Brother Logic (BBL):** Demonstrated the need for accurate belief updates in scenarios with multiple agents and varying states.
+   - **Future Work:** Aimed at improving the flexibility and integration of dynamic planning approaches, enhancing predictive heuristics, and incorporating agent-defined rules.
+
+Overall, the PJP model                        provides a significant advancement in epistemic planning by ensuring dynamic and accurate predictions, improving the agents' ability to achieve their goals in collaborative environments. The model's success is validated through empirical experiments and comparison with traditional static approaches, demonstrating its potential for practical applications in multi-agent systems.

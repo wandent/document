@@ -1,0 +1,7 @@
+```json
+{
+  "geological_data_type": "Scientific Research Papers",
+  "content": "In this work, we introduced MetaFormers, a Transformer model for temporal data analysis, which surpasses previous state-of-the-art benchmarks in the WSDO-2mini/dim and WMAWDM/MAR datasets by optimizing the learning architecture and effectively incorporating a joint learning mechanism. Future work may focus on refinements to further enhance the precision metrics observed in the benchmarks of WSDO-2mini/dim and WMAWDM/MAR.",
+  "confidence": 0.85
+}
+```

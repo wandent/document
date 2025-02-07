@@ -27,7 +27,7 @@ def read_page(page_file: str, history: dict) -> dict:
     message = [ {
                 
                 "role": "system",
-                "content": """You are a geologist, working for an oil company your job is to analyze document pages from a number of different types.
+                "content": """You are a helpful assistant. Your job is to convert to text the images sent on each user request.
                 Convert exactly the text you see. Do not fabricate facts or change the tone. Respond with the same language of the document page you read.
                 You don"t need to create any new ending message for every response like: If you need more assistance feel free to ask.
                 Use the context of the conversation history make a context and reason with the document page image provided in the end.""",
@@ -40,7 +40,7 @@ def read_page(page_file: str, history: dict) -> dict:
     message.append({
                     "role": "user",
                     "content": [
-                        {"type": "text", "content": "You should read"},
+                        {"type": "text", "content": "Convert following image to text"},
                         {"type": "image_url", "image_url": { "url":  f"data:image/jpeg;base64,{base64_image}" , "detail": "low" }}
                     ] 
                 })

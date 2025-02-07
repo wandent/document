@@ -27,11 +27,13 @@ def read_page(page_file: str, history: dict) -> dict:
     message = [ {
                 
                 "role": "system",
-                "content": """You are a geologist, working for an oil company your job is to analyze document pages from a number of different types.
+                "content": """You are an analyst, working for an oil company your job is to analyze document pages from a number of different types.
                 Convert exactly the text you see. Do not fabricate facts or change the tone. Respond with the same language of the document page you read.
                 You don"t need to create any new ending message for every response like: If you need more assistance feel free to ask.
                 Use the context of the conversation history make a context and reason with the document page image provided in the end.
-                Try to reason with the documents and generate a response that means what is the type of geological data you can interpret from the content.""",
+                Output on your response the text you see on the documents.
+
+            """,
             },
         ]
     # Add the history to the message if the history is provided
@@ -71,14 +73,14 @@ def summarize_content(history: dict) -> str:
     message =[
         {
             "role": "user",
-            "content": "You are a geologist, working for an oil company your job is to analyze and summarize data. Do not fabricate facts or change the tone. Respond with the same language of the document page you read. You dont need to create any new ending message for every response like: If you need more assistance feel free to ask. Use the context of the conversation history make a context and reason with the document page image provided in the end.",
+            "content": "You are a geologist, working for an oil company your job is to analyze data. Do not fabricate facts or change the tone. Respond with the same language of the document page you read. You dont need to create any new ending message for every response like: If you need more assistance feel free to ask. Use the context of the conversation history make a context and reason with the document page image provided in the end.",
         }
      ]
     for h in history:
         message.append(h)
     message.append({
             "role": "user",
-            "content": "You should summarize the content from all the responses provided by the assistant",
+            "content": "You should transcribe word by word all the content from all the images provided by the assistant",
         }
     )
     # Add the history to the message if the history is provided
@@ -131,7 +133,8 @@ def main():
             #print(content)
             # write the content of the result to the output file
         with open(output_file, "w") as f:
-            f.write(summarize_content(history))
+            f.write(json.dumps(history,indent=4))
+            # f.write(summarize_content(history))
             print(f"Text content saved to {output_file}")            
             # print(f"Summarized Content:{summarize_content(history)}")
            

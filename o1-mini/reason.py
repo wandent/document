@@ -29,7 +29,7 @@ def reason_content(history: dict) -> str:
         message.append(h)
     message.append({
             "role": "user",
-            "content": """You should provide a response to try to classify the information provided in geological documents with the following characteristics.
+            "content": """You should provide a response to try to classify the information provided in the documents with the following characteristics.
             
 1. Geological Survey Reports
 	· Description: Comprehensive analyses of the geological characteristics of a specific area.
@@ -129,6 +129,21 @@ def reason_content(history: dict) -> str:
 			o Visuals: Risk matrices, probability-impact charts, and mitigation strategy diagrams.
 			o Purpose: Proactively manage and minimize risks to project success and safety.
 			o Methodologies: Often use standardized risk assessment frameworks.
+15. Scientific Research Papers
+	· Description: Peer-reviewed studies on Artificial Intelligence topics related to the development, usage, training and research results.
+	· Characteristics:
+			o Content: Introduction, methodology, results, discussion, and conclusion sections.
+			o Visuals: Tables, figures, graphs, and references to support the research findings.
+			o Purpose: Contribute new knowledge, validate hypotheses, and advance the field of AI.
+			o Academic Rigor: Follows scientific research standards and ethical guidelines.
+16. Technical Specifications and Manuals
+	· Description: Detailed documents outlining the technical specifications and operational procedures for equipment and software.
+	· Characteristics:
+			o Content: Equipment specifications, installation instructions, maintenance procedures, and troubleshooting guides.
+			o Visuals: Schematics, diagrams, flowcharts, and step-by-step illustrations.
+			o Purpose: Ensure proper operation, maintenance, and troubleshooting of technical systems.
+			o User Audience: Technicians, engineers, and operators.
+
 
  
 Key Characteristics Across Documents:
@@ -141,7 +156,24 @@ Key Characteristics Across Documents:
 
             
     I want to to read the document presented on the history and provide a response that classifies the information based on the geological data types described above. The response should identify the type of geological data that can be interpreted from the content.
-    Provide a json response with the classification of the geological data type and the content of the document and the confidence in your prediction based on the instructions provided.""",
+    Provide a json response with the classification of the geological data type and the content of the document and the confidence in your prediction based on the instructions provided.
+    the json output should have the following structure:
+    {
+  "classification": "",
+    "content": {
+      "description": "",
+      "key_characteristics": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "purpose": ""
+    },
+    "confidence": 
+  }
+}
+    """,
         }
     )
     # Add the history to the message if the history is provided
@@ -173,7 +205,7 @@ def main():
          response = reason_content(history)
          print(response)
          # write the response to a file
-        with open("./response.txt", "w") as f:
+        with open("./response.md", "w") as f:
             f.write(response)
             print("Response saved to response.md")
 
